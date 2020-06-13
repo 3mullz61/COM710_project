@@ -12,6 +12,7 @@ html {
     font-family: 'Nunito', sans-serif;
     font-size: 10px;
     box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 a{
@@ -467,9 +468,24 @@ footer{
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     }
 
+.main-book {
+        background-color: #FFFFFF;
+		float: left;
+        width: 400px;
+        height: 100%;
+		margin: 10px;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+
 .body-color {
-        background-color: #F3EBF6;
 		background-image: url("images/login-registerBG.jpg");
+		background-size: cover;
+		background-position: center;
+}
+
+.body-bg {
+	background: linear-gradient(135deg, rgba(68,74,105,0.7) 0%, rgba(111,148,171,0.5) 100%), url("images/water.jpg");
 		background-size: cover;
 		background-position: center;
 }
