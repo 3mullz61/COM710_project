@@ -3,11 +3,12 @@
 session_start();
 
 if(!isset($_SESSION['User'])){
+	$message = "You must be logged in";
+	echo "<script type='text/javascript'>confirm('$message');</script>";
 	header("Location:login.php");
 }
 
 ?>
-
 
 <!doctype html>
 <html>
@@ -20,7 +21,7 @@ if(!isset($_SESSION['User'])){
     <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Booking</title>
+<title>Zolivagant | Booking</title>
 <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -30,7 +31,7 @@ if(!isset($_SESSION['User'])){
         <div class="container">
             <nav>
               <div class="nav-brand">
-                  <a href="index.html">
+                  <a href="index.php">
                       <img src="images/logoZ.jpg" alt="">
                   </a>
               </div> 
@@ -42,7 +43,7 @@ if(!isset($_SESSION['User'])){
                     <i class="icon ion-md-close"></i>
                 </div>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#packages" class="nav-link">Packages</a>
@@ -53,9 +54,19 @@ if(!isset($_SESSION['User'])){
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="login.php" class="nav-link">Login</a>
-                </li>
+					  <?php
+					  if(isset($_SESSION['User'])){
+							echo '<li class="nav-item">
+							<a href="account.php" class="nav-link">My Account</a>
+							</li>
+							<li class="nav-item">
+							<a href="logout.php" class="nav-link">Logout</a>
+							</li>';
+					  	}else{
+						  echo'<li class="nav-item">
+                    			<a href="login.php" class="nav-link">Login</a>
+                				</li>';}		
+						?>
               </ul>
             </nav>   
         </div>
@@ -63,13 +74,8 @@ if(!isset($_SESSION['User'])){
 	
 	<main>
 	<div class="main-book">
-    <h1 class="sign" align="center">Booking</h1>
-		
-	<?php
-	echo "<p class="forgot" align="center"> Hello" . $_SESSION['User'] . "</p>";
-	?> 
-		
-	<p class="forgot" align="center"><br> please fill out the following form and <br> select your package:</p>
+    <h1 class="sign" align="center">Booking</h1> 
+	<?php echo '<p class="forgot" align="center"> Hello <strong>' . $_SESSION['User'] . '</strong><br> please fill out the following form and<br>select your package:</p>'?>
     <form class="form1" style="margin-top:-30px;">
 		<p class="forgot" align="center">Personal Information</p>
       <input class="un" type="text" align="center" style="margin-bottom:5px;" placeholder="First Name">
@@ -140,7 +146,7 @@ if(!isset($_SESSION['User'])){
     </label>
 		</div>
       <a class="submit" align="center">Book now</a>
-			<p class="forgot" align="center" style="margin-bottom:20px;"><a href="index.html" style="text-decoration: underline">Back</a></p>
+			<p class="forgot" align="center" style="margin-bottom:20px;"><a href="index.php" style="text-decoration: underline">Back To Home</a></p>
 		</form>
 		</div>
 	<div class="body center2">

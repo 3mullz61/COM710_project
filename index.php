@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,7 +22,7 @@
         <div class="container">
             <nav>
               <div class="nav-brand">
-                  <a href="index.html">
+                  <a href="index.php">
                       <img src="images/logoZ.jpg" alt="">
                   </a>
               </div> 
@@ -32,7 +34,7 @@
                     <i class="icon ion-md-close"></i>
                 </div>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link current">Home</a>
+                    <a href="index.php" class="nav-link current">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#packages" class="nav-link">Packages</a>
@@ -43,9 +45,19 @@
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="login.php" class="nav-link">Login</a>
-                </li>
+                <?php
+					  if(isset($_SESSION['User'])){
+							echo '<li class="nav-item">
+							<a href="account.php" class="nav-link">My Account</a>
+							</li>
+							<li class="nav-item">
+							<a href="logout.php" class="nav-link">Logout</a>
+							</li>';
+					  	}else{
+						  echo'<li class="nav-item">
+                    			<a href="login.php" class="nav-link">Login</a>
+                				</li>';}		
+						?>
               </ul>
             </nav>   
         </div>
@@ -62,7 +74,7 @@
 Many globetrotters are often confronted with issues during their trips; these can include airport queues, losing luggage or relinquishing on their favourite products from home. Zolivagant will prevent the traveller from all these worries by sending their luggage ahead of time to the desired location. This service will change journeys to a baggage-free adventure.
                     </p>
                     <div class="cta">
-                        <a href="" class="btn">Book Your Journey</a>
+                        <a href="booking.php" class="btn">Book Your Journey</a>
                     </div>
                 </div>  
             </div>
@@ -80,8 +92,7 @@ Many globetrotters are often confronted with issues during their trips; these ca
                     <!--grid item #1-->
                     <div class= "packages-grid-item suitcase">
                     <i class= "icon ion-md-briefcase"></i>
-                    <h1>Comfort</h1>
-					<h2>99,00$</h2>
+                    <h1>Comfort - 99,00$</h1>
                     <p> The customer allows an employee of the firm to choose and pack their wardrobe and itineraries in the comfort of his home. It is also possible for an additional cost, to have the consultancy team choose outfits and/or accessories for the trip; e.g. the perfect scarf for the trip to Dubai. This is the lowest-priced package offered.</p>
 						<div class="cta">
                         <a href="#about" class="btn">Learn More</a>
@@ -91,8 +102,7 @@ Many globetrotters are often confronted with issues during their trips; these ca
                     <!--grid item #2-->
                     <div class= "packages-grid-item business">
                         <i class= "icon ion-md-business"></i>
-                        <h1>Business</h1>
-						<h2>199,00$</h2>
+                        <h1>Business - 199,00$</h1>
                         <p> Most business passengers like to travel as light as possible. With this particular package, the customer has the option to rent or buy the outfits that the firm provides for them. The suitcase will be sent directly to the traveller’s accommodation. Prior to the journey, the customer completes an online checklist, which takes less than 5 minutes to fill out. If he’s on the go, a picture of his or her current outfit can be attached to the checklist which will contain questions about what sizes, colours and brands the customer prefers. A virtual closet will then be sent to their contact details and after approval, an individual package will be selected and waiting for the client at the destination. Suits, t-shirt, shirts, pants, blazers etc. will be possible to rent or buy from selected cooperating department stores.</p>
 						<div class="cta">
                         <a href="#about" class="btn">Learn More</a>
@@ -101,8 +111,7 @@ Many globetrotters are often confronted with issues during their trips; these ca
                     <!--grid item #3-->
                     <div class= "packages-grid-item shopping">
                         <i class= "icon ion-md-star"></i>
-                        <h1>Star</h1>
-						<h2>349,00$</h2>
+                        <h1>Star - 349,00$</h1>
                         <p> The Star package offers a wardrobe, which has been arranged by the company. Before the journey, an employee will make an appointment to discuss and consult with the client about possible outfits, brands and products he likes. With this information, an individual package will be compiled by the firm. The buyer has to purchase the entire package for his trip. If clothes for whatever reason do not fit properly or the person dislikes them, then these can be sent back. An employee will then pick up the outfits and exchange them within 24h
                         </p>
 						<div class="cta">
