@@ -1,9 +1,9 @@
-/*Global style*/
+/*--------------------------------------Global style-----------------------------------*/
 
 *,
 *::before
 *::after {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: inherit;
 }
@@ -13,6 +13,7 @@ html {
     font-size: 10px;
     box-sizing: border-box;
 	scroll-behavior: smooth;
+	margin: 0 auto;
 }
 
 a{
@@ -40,7 +41,7 @@ section{
 }
 
 
-/*header*/
+/*------------------------------Header--------------------------------------*/
 header{
     width: 100%;
     height: 5rem;
@@ -56,6 +57,7 @@ header{
     padding: 0 1.5rem;
 }
 
+/*--------------------------------Menu navigation---------------------------*/
 nav{
     width: 100%;
     display: flex;
@@ -65,7 +67,8 @@ nav{
     border-bottom: 1px solid rgba(255, 255, 255,.2);
 }
 .nav-brand{
-    width: 2rem;
+    width: 8rem;
+	margin-top: -8px;
 }
 
 .menu-icons i{
@@ -84,12 +87,11 @@ nav{
     background-color: #d7d4ed;
     position: fixed;
     top: 0;
-    right: -26rem;
+    right: -30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1500;
     transition: all 650ms ease-in-out;
 }
 
@@ -113,7 +115,7 @@ nav{
     color: rgba(0, 0, 0,0.7);
 }
 
-/*hero*/
+/*-----------------------------Homepage - Banner-----------------------------------*/
 .hero{
     width: 100%;
     height: 80vh;
@@ -171,7 +173,7 @@ nav{
     background-color:#628ca7;
 }
 
-/*Packages*/
+/*----------------------------Homepage - Packages-------------------------------*/
 .Packages{
     padding: 0;
 }
@@ -200,7 +202,8 @@ nav{
 .packages-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, mixmax (25rem, 1fr));
-    grid-gap: 2.5rem;   
+    grid-gap: 2.5rem;  
+	z-index: 2;
 }
 
 .packages-grid-item{
@@ -254,7 +257,7 @@ nav{
     margin: 2rem 0;
 }
 
-/*testimonials*/
+/*---------------------------------Homepage - Testimonials---------------------------*/
 .testimonials{
     width: 100%;
     height: 80vh;
@@ -310,7 +313,7 @@ nav{
     border: 3px solid #7ca5be;
 }
 
-/*Begin journey*/
+/*-----------------------------------Homepage - Journey--------------------------------*/
 .journey-grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, mixmax (25rem, 1fr));
@@ -347,7 +350,7 @@ footer{
     color: rgba(0,0,0,0.7);
 }
 
-/*Media queries*/
+/*-------------------------------Media Queries for responsive design----------------------*/
 @media screen and (min-width: 350px){
     .main-message{
         transform: translateY(40%);
@@ -458,7 +461,7 @@ footer{
     }
 }
 
-/*---------------------------------------------------------LOGIN & REGISTER----------------------------------*/
+/*--------------------------------------Login, Register, Booking----------------------------------*/
 .main {
         background-color: #FFFFFF;
         width: 400px;
@@ -476,10 +479,17 @@ footer{
 		margin: 10px;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+		margin-top: 80px;
     }
 
 .body-color {
 		background-image: url("images/login-registerBG.jpg");
+		background-size: cover;
+		background-position: center;
+}
+
+.body-color2 {
+		background-image: url("images/travel_map.jpg");
 		background-size: cover;
 		background-position: center;
 }
@@ -574,4 +584,10 @@ footer{
         .main {
             border-radius: 0px;
         }
+}
+
+.center2 {
+  padding: 70px 0;
+  text-align: center;
+	color:white;
 }

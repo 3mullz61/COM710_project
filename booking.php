@@ -1,19 +1,75 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['User'])){
+	header("Location:login.php");
+}
+
+?>
+
+
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>booking</title>
+<title>Booking</title>
 <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="body-bg">
+	
+	<header style="background-color: #d7d4ed; height: 70px">
+        <div class="container">
+            <nav>
+              <div class="nav-brand">
+                  <a href="index.html">
+                      <img src="images/logoZ.jpg" alt="">
+                  </a>
+              </div> 
+              <div class="menu-icons open">
+                  <i class="icon ion-md-menu"></i>
+              </div>
+              <ul class="nav-list">
+                <div class="menu-icons close">
+                    <i class="icon ion-md-close"></i>
+                </div>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#packages" class="nav-link">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a href="booking.php" class="nav-link current">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.php" class="nav-link">Login</a>
+                </li>
+              </ul>
+            </nav>   
+        </div>
+    </header>
+	
+	<main>
 	<div class="main-book">
     <h1 class="sign" align="center">Booking</h1>
-		<p class="forgot" align="center">Hello {$user}, <br> please fill out the following form and <br> select your package:</p>
+		
+	<?php
+	echo "<p class="forgot" align="center"> Hello" . $_SESSION['User'] . "</p>";
+	?> 
+		
+	<p class="forgot" align="center"><br> please fill out the following form and <br> select your package:</p>
     <form class="form1" style="margin-top:-30px;">
 		<p class="forgot" align="center">Personal Information</p>
       <input class="un" type="text" align="center" style="margin-bottom:5px;" placeholder="First Name">
@@ -84,8 +140,14 @@
     </label>
 		</div>
       <a class="submit" align="center">Book now</a>
-			<p class="forgot" align="center" style="margin-bottom:20px;"><a href="index.html" style="text-decoration: underline"></a>Back</p>
+			<p class="forgot" align="center" style="margin-bottom:20px;"><a href="index.html" style="text-decoration: underline">Back</a></p>
 		</form>
 		</div>
+	<div class="body center2">
+	<h1 style="font-size: 40pt">Book your luggage free journey <br> with Zolivigant today!</h1>
+		<p style="margin-top: 30px; font-size: 18pt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	</main>
+	<script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
